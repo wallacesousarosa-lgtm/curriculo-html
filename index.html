@@ -124,10 +124,6 @@
 
       const elemento = document.getElementById('curriculo');
 
-      // Esconde o botão PDF
-      const botaoPDF = document.querySelector('.pdf-container');
-      botaoPDF.style.display = 'none';
-
       const opcoes = {
 
         margin: 0.5,
@@ -140,7 +136,13 @@
         },
 
         html2canvas: {
-          scale: 2
+
+          scale: 2,
+
+          ignoreElements: function(element) {
+            return element.classList.contains('pdf-container');
+          }
+
         },
 
         jsPDF: {
@@ -153,13 +155,7 @@
       html2pdf()
         .set(opcoes)
         .from(elemento)
-        .save()
-        .then(() => {
-
-          // Mostra o botão novamente
-          botaoPDF.style.display = 'block';
-
-        });
+        .save();
     }
 
   </script>
