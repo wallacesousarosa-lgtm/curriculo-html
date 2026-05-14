@@ -14,19 +14,22 @@
 
 <body>
 
-  <!-- BOTÃO PDF -->
-  <div class="pdf-container">
-    <button onclick="baixarPDF()" class="btn-pdf">
-      <i class="fa-solid fa-file-pdf"></i> Baixar PDF
-    </button>
-  </div>
-
   <!-- ÁREA DO CURRÍCULO -->
   <div id="curriculo">
 
     <header>
+
       <h1>Wallace Rosa</h1>
+
       <p>Analista de Dados | Gestão de Projetos</p>
+
+      <!-- BOTÃO PDF -->
+      <div class="pdf-container">
+        <button onclick="baixarPDF()" class="btn-pdf">
+          <i class="fa-solid fa-file-pdf"></i> Baixar PDF
+        </button>
+      </div>
+
     </header>
 
     <nav class="navbar">
@@ -39,14 +42,19 @@
     </nav>
 
     <section id="sobre">
+
       <h2>Sobre mim</h2>
+
       <p>
         Sou do Rio de Janeiro, sou formado em Economia e possuo pós-graduação em Gestão de Projetos. Possuo disponibilidade para projetos temporários.
       </p>
+
     </section>
 
     <section id="habilidades">
+
       <h2>Habilidades</h2>
+
       <ul>
         <li>MySQL</li>
         <li>Excel</li>
@@ -54,10 +62,13 @@
         <li>VBA</li>
         <li>Power BI</li>
       </ul>
+
     </section>
 
     <section id="projetos">
+
       <h2>Projetos</h2>
+
       <ul>
 
         <li>
@@ -76,6 +87,7 @@
         </li>
 
       </ul>
+
     </section>
 
     <footer id="contato">
@@ -113,7 +125,9 @@
       const elemento = document.getElementById('curriculo');
 
       const opcoes = {
+
         margin: 0.5,
+
         filename: 'Curriculo-Wallace-Rosa.pdf',
 
         image: {
