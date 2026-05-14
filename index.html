@@ -3,81 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <title>Currículo - Wallace Rosa</title>
+
   <link rel="stylesheet" href="EstiloCurriculo.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Biblioteca PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
-  <header>
-    <h1>Wallace Rosa</h1>
-    <p>Analista de Dados | Gestão de Projetos</p>
-  </header>
+  <!-- BOTÃO PDF -->
+  <div class="pdf-container">
+    <button onclick="baixarPDF()" class="btn-pdf">
+      <i class="fa-solid fa-file-pdf"></i> Baixar PDF
+    </button>
+  </div>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
+  <!-- ÁREA DO CURRÍCULO -->
+  <div id="curriculo">
 
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>
-      Sou do Rio de Janeiro, sou formado em Economia e possuo pós-graduação em Gestão de Projetos. Possuo disponibilidade para projetos temporários.
-    </p>
-  </section>
+    <header>
+      <h1>Wallace Rosa</h1>
+      <p>Analista de Dados | Gestão de Projetos</p>
+    </header>
 
-  <section id="habilidades">
-    <h2>Habilidades</h2>
-    <ul>
-      <li>MySQL</li>
-      <li>Excel</li>
-      <li>PowerPoint</li>
-      <li>VBA</li>
-      <li>Power BI</li>
-    </ul>
-  </section>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
 
-  <section id="projetos">
-    <h2>Projetos</h2>
-    <ul>
-      <li>
-        <strong>Fuel Marketing:</strong> Mapeamento de processos internos, resultando em maior eficiência operacional e agilidade na execução das atividades.
-      </li>
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <p>
+        Sou do Rio de Janeiro, sou formado em Economia e possuo pós-graduação em Gestão de Projetos. Possuo disponibilidade para projetos temporários.
+      </p>
+    </section>
 
-      <li>
-        <strong>Centtralmed:</strong> Desenvolvimento de sistema de controle de estoque por meio de planilhas compartilhadas, proporcionando melhor organização e controle dos materiais.
-      </li>
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <ul>
+        <li>MySQL</li>
+        <li>Excel</li>
+        <li>PowerPoint</li>
+        <li>VBA</li>
+        <li>Power BI</li>
+      </ul>
+    </section>
 
-      <li>
-        <strong>Aca Tubos:</strong> Implementação de sistema interno para controle de estoque e envio de materiais, aumentando a eficiência logística e a velocidade da produção.
-      </li>
-    </ul>
-  </section>
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <ul>
 
-  <footer id="contato">
-    <div class="contato-info">
-      <p>📱 (21) 98599-0287</p>
-      <p>📧 wallace.sousarosa@gmail.com</p>
-    </div>
+        <li>
+          <strong>Fuel Marketing:</strong>
+          Mapeamento de processos internos, resultando em maior eficiência operacional e agilidade na execução das atividades.
+        </li>
 
-    <div class="contato-botoes">
-      <a href="https://wa.me/5521985990287" target="_blank" class="botao whatsapp">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-      </a>
+        <li>
+          <strong>Centtralmed:</strong>
+          Desenvolvimento de sistema de controle de estoque por meio de planilhas compartilhadas, proporcionando melhor organização e controle dos materiais.
+        </li>
 
-      <a href="mailto:wallace.sousarosa@gmail.com" class="botao email">
-        <i class="fa-solid fa-envelope"></i> Email
-      </a>
+        <li>
+          <strong>Aca Tubos:</strong>
+          Implementação de sistema interno para controle de estoque e envio de materiais, aumentando a eficiência logística e a velocidade da produção.
+        </li>
 
-      <a href="https://www.linkedin.com/in/wallace-rosa-845441165/" target="_blank" class="botao linkedin">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
-      </a>
-    </div>
-  </footer>
+      </ul>
+    </section>
+
+    <footer id="contato">
+
+      <div class="contato-info">
+        <p>📱 (21) 98599-0287</p>
+        <p>📧 wallace.sousarosa@gmail.com</p>
+      </div>
+
+      <div class="contato-botoes">
+
+        <a href="https://wa.me/5521985990287" target="_blank" class="botao whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+
+        <a href="mailto:wallace.sousarosa@gmail.com" class="botao email">
+          <i class="fa-solid fa-envelope"></i> Email
+        </a>
+
+        <a href="https://www.linkedin.com/in/wallace-rosa-845441165/" target="_blank" class="botao linkedin">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT PDF -->
+  <script>
+
+    function baixarPDF() {
+
+      const elemento = document.getElementById('curriculo');
+
+      const opcoes = {
+        margin: 0.5,
+        filename: 'Curriculo-Wallace-Rosa.pdf',
+
+        image: {
+          type: 'jpeg',
+          quality: 1
+        },
+
+        html2canvas: {
+          scale: 2
+        },
+
+        jsPDF: {
+          unit: 'in',
+          format: 'a4',
+          orientation: 'portrait'
+        }
+      };
+
+      html2pdf()
+        .set(opcoes)
+        .from(elemento)
+        .save();
+    }
+
+  </script>
 
 </body>
 </html>
