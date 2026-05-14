@@ -24,10 +24,12 @@
       <p>Analista de Dados | Gestão de Projetos</p>
 
       <!-- BOTÃO PDF -->
-      <div class="pdf-container">
+      <div class="pdf-container no-pdf">
+
         <button onclick="baixarPDF()" class="btn-pdf">
           <i class="fa-solid fa-file-pdf"></i> Baixar PDF
         </button>
+
       </div>
 
     </header>
@@ -136,13 +138,7 @@
         },
 
         html2canvas: {
-
-          scale: 2,
-
-          ignoreElements: function(element) {
-            return element.classList.contains('pdf-container');
-          }
-
+          scale: 2
         },
 
         jsPDF: {
@@ -152,10 +148,26 @@
         }
       };
 
+      // Esconde tudo com classe no-pdf
+      const elementosOcultos = document.querySelectorAll('.no-pdf');
+
+      elementosOcultos.forEach(el => {
+        el.style.display = 'none';
+      });
+
       html2pdf()
         .set(opcoes)
         .from(elemento)
-        .save();
+        .save()
+        .then(() => {
+
+          // Mostra novamente
+          elementosOcultos.forEach(el => {
+            el.style.display = 'block';
+          });
+
+        });
+
     }
 
   </script>
